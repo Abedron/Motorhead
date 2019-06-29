@@ -1,18 +1,18 @@
+
+
 void setup() {
   Serial.begin(9600);
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(9, OUTPUT);
 }
 
 bool genChange = false;
 long previousTime = millis();
-long milli = 100;
+long milli = 20;
 
 String message = "1";
 void loop() {
 
 
-
-  
   if (Serial.available() > 0){
       message = Serial.readString();
       message.trim();
@@ -20,10 +20,7 @@ void loop() {
   }
 
 
-
-
-  
-  if(SquareGenerator(milli, 100, millis())){
+  if(SquareGenerator(milli, 1, millis())){
     if(!genChange) {
         genChange = true;
         digitalWrite(9, HIGH);
